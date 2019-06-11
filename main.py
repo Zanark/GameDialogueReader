@@ -7,10 +7,12 @@ import os
 # img = pyss.grab(bbox=(0,750,1919,1060))
 # img.save('ss.png')
 
-img = Image.open('/home/zanark/ss.png').convert('LA')
+img = Image.open('/home/zanark/Pictures/ss.png').convert('L')
+img = img.convert('RGB')
+img.save("/home/zanark/ss.png", dpi=(1000,1000))
+img = Image.open('/home/zanark/ss.png')
 
-
-dialogue = pyt.image_to_string(img, lang='eng', config='--psm 9')
+dialogue = pyt.image_to_string(img, lang='eng', config='--psm 12')
 print(dialogue)
 
 tts = gTTS(dialogue, lang='en')      #gTTS at work
