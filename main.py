@@ -1,6 +1,7 @@
 import pyscreenshot as pyss
 import pytesseract as pyt
 from PIL import Image
+import PIL.ImageOps
 from gtts import gTTS
 import os
 
@@ -9,7 +10,8 @@ import os
 
 img = Image.open('/home/zanark/Pictures/ss.png').convert('L')
 img = img.convert('RGB')
-img.save("/home/zanark/ss.png", dpi=(1000,1000))
+PIL.ImageOps.invert(img)
+img.save("/home/zanark/ss.jpg", dpi=(10000,10000))
 img = Image.open('/home/zanark/ss.png')
 
 dialogue = pyt.image_to_string(img, lang='eng', config='--psm 12')
