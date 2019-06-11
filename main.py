@@ -1,0 +1,2 @@
+import pyscreenshot as pyss
+
